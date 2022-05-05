@@ -465,7 +465,7 @@
 			},
 			"SynapseWorkspaceName": {
 				"type": "string",
-				"defaultValue": "mstl5mod4uoempiepocws1"
+				"defaultValue": "mstl5mod4uoempiepocws1.database.windows.net"
 			},
 			"SQLDedicatedPoolName": {
 				"type": "string",
