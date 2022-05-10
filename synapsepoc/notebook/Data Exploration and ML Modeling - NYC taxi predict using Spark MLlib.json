@@ -8,16 +8,16 @@
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "56g",
-			"driverCores": 8,
-			"executorMemory": "56g",
-			"executorCores": 8,
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "ea845ed0-fb42-4209-8a3c-51bfc10a8bf7"
+				"spark.autotune.trackingId": "cfb0537e-03e7-4565-b94d-640a0daf5a7c"
 			}
 		},
 		"metadata": {
@@ -31,18 +31,18 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/326b99e2-8ff4-479f-9240-f5645a43a055/resourceGroups/synapseoneclickdemo/providers/Microsoft.Synapse/workspaces/mstl5mod4uoempiepocws1/bigDataPools/ws1sparkpool1",
+				"id": "/subscriptions/326b99e2-8ff4-479f-9240-f5645a43a055/resourceGroups/Synapseoneclick/providers/Microsoft.Synapse/workspaces/mst2rdbblweow2rapocws1/bigDataPools/ws1sparkpool1",
 				"name": "ws1sparkpool1",
 				"type": "Spark",
-				"endpoint": "https://mstl5mod4uoempiepocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"endpoint": "https://mst2rdbblweow2rapocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "2.4",
 				"nodeCount": 5,
-				"cores": 8,
-				"memory": 56,
+				"cores": 4,
+				"memory": 28,
 				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
@@ -317,7 +317,7 @@
 					"plt.ylabel('True Positive Rate')\n",
 					"plt.show()"
 				],
-				"execution_count": 10
+				"execution_count": null
 			}
 		]
 	}
