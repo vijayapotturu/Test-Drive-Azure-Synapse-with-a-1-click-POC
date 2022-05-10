@@ -6,6 +6,10 @@
 		},
 		"nbformat": 4,
 		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "ws1sparkpool1",
+			"type": "BigDataPoolReference"
+		},
 		"sessionProperties": {
 			"driverMemory": "28g",
 			"driverCores": 4,
@@ -16,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "55b9e957-22cb-4f42-aca8-8df6acc6dfc4"
+				"spark.autotune.trackingId": "61b4d21b-a000-415e-8b22-5206ea90ae38"
 			}
 		},
 		"metadata": {
@@ -28,6 +32,21 @@
 			},
 			"language_info": {
 				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/326b99e2-8ff4-479f-9240-f5645a43a055/resourceGroups/Synapseoneclick/providers/Microsoft.Synapse/workspaces/mst2rdbblweow2rapocws1/bigDataPools/ws1sparkpool1",
+				"name": "ws1sparkpool1",
+				"type": "Spark",
+				"endpoint": "https://mst2rdbblweow2rapocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 5,
+				"cores": 4,
+				"memory": 28,
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -82,7 +101,7 @@
 					"print(f\"PySpark version: {pyspark_version}\")\r\n",
 					"print(f\"MMLSpark version: {mmlspark.core.__spark_package_version__}\")"
 				],
-				"execution_count": 2
+				"execution_count": 1
 			},
 			{
 				"cell_type": "markdown",
@@ -141,7 +160,7 @@
 					"MODEL_NAME = \"lgb-quickstart\"\r\n",
 					""
 				],
-				"execution_count": 3
+				"execution_count": 2
 			},
 			{
 				"cell_type": "markdown",
@@ -179,7 +198,7 @@
 					"df = raw_data.toPandas()\r\n",
 					"print(\"Shape: \", df.shape)"
 				],
-				"execution_count": 4
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
@@ -189,7 +208,7 @@
 				"source": [
 					"display(df.iloc[:10, :])"
 				],
-				"execution_count": 5
+				"execution_count": 4
 			},
 			{
 				"cell_type": "markdown",
@@ -222,7 +241,7 @@
 					"df.describe()\r\n",
 					""
 				],
-				"execution_count": 6
+				"execution_count": 5
 			},
 			{
 				"cell_type": "code",
@@ -257,7 +276,7 @@
 					"            annot_kws={'size': 10})\r\n",
 					"plt.show()"
 				],
-				"execution_count": 7
+				"execution_count": 6
 			},
 			{
 				"cell_type": "code",
@@ -279,7 +298,7 @@
 					"sns.pairplot(df, height=2.5)\r\n",
 					"plt.show()"
 				],
-				"execution_count": 8
+				"execution_count": 7
 			},
 			{
 				"cell_type": "markdown",
@@ -315,7 +334,7 @@
 					"print(\"Train: (rows, columns) = {}\".format((raw_train.count(), len(raw_train.columns))))\n",
 					"print(\"Test: (rows, columns) = {}\".format((raw_test.count(), len(raw_test.columns))))"
 				],
-				"execution_count": 9
+				"execution_count": 8
 			},
 			{
 				"cell_type": "markdown",
@@ -351,7 +370,7 @@
 					"train = featurizer.transform(raw_train)[LABEL_COL, FEATURE_COL]\n",
 					"test = featurizer.transform(raw_test)[LABEL_COL, FEATURE_COL]"
 				],
-				"execution_count": 11
+				"execution_count": 9
 			},
 			{
 				"cell_type": "code",
@@ -372,7 +391,7 @@
 					"display(train.groupBy(LABEL_COL).count())\n",
 					""
 				],
-				"execution_count": 12
+				"execution_count": 10
 			},
 			{
 				"cell_type": "markdown",
@@ -419,7 +438,7 @@
 					")\n",
 					""
 				],
-				"execution_count": 13
+				"execution_count": 11
 			},
 			{
 				"cell_type": "code",
@@ -438,7 +457,7 @@
 				"source": [
 					"model = lgbm.fit(train)"
 				],
-				"execution_count": 14
+				"execution_count": 12
 			},
 			{
 				"cell_type": "markdown",
@@ -468,7 +487,7 @@
 					"plt.ylabel('features')\n",
 					"plt.show()"
 				],
-				"execution_count": 15
+				"execution_count": 13
 			},
 			{
 				"cell_type": "markdown",
@@ -494,7 +513,7 @@
 					"predictions = model.transform(test)\r\n",
 					""
 				],
-				"execution_count": 16
+				"execution_count": 14
 			},
 			{
 				"cell_type": "code",
@@ -504,7 +523,7 @@
 				"source": [
 					"display(predictions.limit(10))"
 				],
-				"execution_count": 17
+				"execution_count": 15
 			},
 			{
 				"cell_type": "markdown",
@@ -543,7 +562,7 @@
 					"\n",
 					"metrics = evaluator.transform(predictions)"
 				],
-				"execution_count": 18
+				"execution_count": 16
 			},
 			{
 				"cell_type": "code",
@@ -562,7 +581,7 @@
 				"source": [
 					"display(metrics)"
 				],
-				"execution_count": 19
+				"execution_count": 17
 			},
 			{
 				"cell_type": "markdown",
@@ -601,7 +620,7 @@
 					" .save(MODEL_NAME))\r\n",
 					""
 				],
-				"execution_count": 20
+				"execution_count": 18
 			}
 		]
 	}
