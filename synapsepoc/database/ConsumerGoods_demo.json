@@ -1,0 +1,24 @@
+{
+	"name": "ConsumerGoods_demo",
+	"properties": {
+		"Name": "ConsumerGoods_demo",
+		"EntityType": "DATABASE",
+		"Description": "",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"ConsumerGoods\",\"Version\":\"0.1.0\"}}}",
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://dlsmstpocfs1@mst2rdbblweow2rapoc.dfs.core.windows.net/ConsumerGoods_demo",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "mst2rdbblweow2rapocws1-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
